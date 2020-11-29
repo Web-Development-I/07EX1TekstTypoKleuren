@@ -1,0 +1,112 @@
+  /* 
+    --nav-link-color: #757575;
+    --nav-link-hover-color: #1a7780;
+
+    --jumbotron-bgcolor: #3b3b3b;
+    --jumbotron-article-bgcolor: #4e5046;
+    --jumbotron-border-color: #878979;
+
+    --articles-bgcolor: #d8d8c9;
+
+    --article-bgcolor: #8e956f;
+    --article-strong-color: #6b714d; 
+
+    De kleuren voor de vier gekleurde
+    onderranden van 'article header' 
+    --article1-border-color: #97c6d9;
+    --article2-border-color: #a6715a;
+    --article3-border-color: #dcad5b;
+    --article4-border-color: #238b95;
+
+    --footer-bgcolor: #a2a48e;
+    --address-color: var(--footer-bgcolor);
+
+    --white: white; 
+  */
+
+/* Algemene opmaak */
+/* ************** */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: helveticaneue, sans-serif;
+  display: grid;
+}
+
+.content_wrapper {
+  /* De .content_wrapper is steeds gecentreerd */
+  margin: 0 auto;
+  /* Op de smartphone krijgt de content_wrapper
+  de nodige breedte voor één artikel */
+  width: 265px;
+  padding: 5px 10px;
+}
+
+/* Opmaak van de header */
+/* ******************** */
+
+
+
+
+/* Opmaak van de jumbotron */
+/* *********************** */
+
+.jumbotron {
+  background-color: #3b3b3b;
+}
+
+.jumbotron article {
+  background-color: #4e5046;
+  color: #fff;
+  padding: 15px;
+}
+.jumbotron h1 {
+  font-size: 2.25rem;
+}
+.jumbotron p {
+  font-size: 1.125rem;
+}
+
+/* Opmaak van de artikels */
+/* ********************** */
+
+.articles {
+  background-color: #d8d8c9;
+  padding: 5px 0;
+}
+
+.articles article {
+  background-color: #8e956f;
+}
+
+.articles article header {
+  background-color: white;
+}
+
+.articles article h2 {
+  padding: 10px 0;
+}
+
+.articles article strong {
+  color: #6b714d; 
+  font-size: 1.25rem;
+  padding: 5px 0;
+}
+
+.articles article p {
+  padding: 15px 20px;
+  color: white;
+}
+
+/* Opmaak van de footer */
+/* *********************** */
+
+footer {
+  background-color: #a2a48e;
+  font-size: 0.75rem;
+  font-family: Arial, Helvetica, sans-serif;  
+}
+

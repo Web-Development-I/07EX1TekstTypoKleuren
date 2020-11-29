@@ -1,0 +1,253 @@
+@import url('normalize.css');
+
+/* Algemeen */
+/* ******** */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #111;
+  background-color: #525252;
+}
+
+/* beetje meer ruimte tussen de regels */
+p,
+li {
+  line-height: 1.5;
+}
+
+/* kleuren instellen voor de paginablokken */
+.container {
+  background-color: grey;
+}
+header,
+main {
+  background-color: #fff;
+}
+nav {
+  background-color: #393939;
+  /* background-color: #fff; */
+}
+footer {
+  background-color: #ed1c24;
+  color: white;
+}
+
+/* beetje padding links en rechts voor header, main en footer.
+De nav mag geen padding krijgen want de grijze randen van de 
+li-elementen moeten doorlopen over de volledige breedte; 
+*/
+header,
+main,
+footer {
+  padding: 0px 15px;
+}
+
+/* opmaak van het container-element */
+.container {
+  /* we gebruiken CSS grid voor de page layout */
+  display: grid;
+  grid-template-areas:
+    'header'
+    'nav'
+    'main'
+    'footer';
+  gap: 3px;
+
+  /* container centreren en 
+  breedte beperken tot 960px */
+  max-width: 960px;
+  margin: 0 auto;
+
+  /* OPLOSSSING */
+  min-height: 100vh;
+  grid-template-rows: auto auto 1fr auto;
+}
+
+header {
+  grid-area: header;
+}
+
+footer {
+  grid-area: footer;
+}
+
+nav {
+  grid-area: nav;
+}
+
+main {
+  grid-area: main;
+}
+
+/* beetje extra padding boven en onder 
+voor heading en footer */
+header,
+footer {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* algemene opmaak voor de hyperlinks */
+a {
+  color: #ed1c24;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Navigatiebalk (small devices) */
+/* ***************************** */
+
+nav ul {
+  /* lettertype in navigatiebalk vergroten */
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+/* met uitzondering van het eerste li-element geven
+we elk li-element een grijze bovenrand */
+nav li + li {
+  border-top: 1px solid grey;
+}
+
+nav a {
+  text-align: center;
+  color: white;
+  /* we zorgen voor een grotere click area */
+  display: block;
+  padding: 0.5rem 0;
+}
+
+nav a:not([href]) {
+  color: #ed1c24;
+  text-decoration: none;
+}
+
+/*******************************************/
+/* We plaatsen een 'break point" bij 490px */
+/*******************************************/
+@media screen and (min-width: 490px) {
+  /* extra witruimte voorzien bij de paginablokken */
+  header,
+  nav,
+  main,
+  footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  main {
+    padding-right: 40px;
+  }
+
+  /* OPLOSSSING */
+  .container {
+    grid-template-rows: auto auto 1fr auto;
+  }
+
+  /* Navigatiemenu herwerken vanaf 490px */
+  /* *********************************** */
+
+  /* grijze randen bovenaan verwijderen */
+  nav li + li {
+    border-top: 0;
+  }
+
+  /* navigatiemenu horizontaal maken */
+  nav ul {
+    display: flex;
+  }
+
+  /* witruimte bij de links */
+  nav a {
+    padding: 10px 15px;
+  }
+
+  /* contact-link naar rechts duwen */
+  nav li:last-of-type {
+    margin-left: auto;
+  }
+}
+
+/*******************************************/
+/* We plaatsen een 'break point" bij 840px */
+/*******************************************/
+@media screen and (min-width: 840px) {
+  /* CSS-grid layout aanpassen naar twee kolommen */
+  .container {
+    display: grid;
+    grid-template-columns: 20ch 1fr;
+    /* OPLOSSSING */
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      'header header'
+      'nav    main  '
+      'footer footer';
+  }
+
+  /* Navigatiemenu herwerken vanaf 840px */
+  /***************************************/
+
+  /* navigatiemenu terug verticaal maken */
+  nav ul {
+    flex-direction: column;
+    /* beetje extra witruimte bovenaan */
+    padding-top: 15px;
+  }
+  /* contact-link moet niet meer naar rechts geduwd worden */
+  nav li:last-of-type {
+    margin-left: 0;
+  }
+
+  /* Webpagina 'over_ons.html' */
+  /* ************************* */
+
+  /* OPLOSSING */
+  /* aside op 'over_ons.html' rechts van section plaatsen */
+  #over_ons {
+    display: flex;
+    padding-right: 20px;
+  }
+
+  #over_ons section {
+    flex: auto;
+    padding-right: 10px;
+  }
+
+  #over_ons aside {
+    border-left: 1px grey solid;
+    padding: 0 7px;
+    flex: 0;
+  }
+}
+
+/* Foto's op webpagina realisaties.html */
+/* ************************************ */
+#fotos_realisaties {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+figcaption {
+  font-size: small;
+  text-align: center;
+}
+
+/* Fotowebpagina's in de map 'realisaties' */
+/* ************************************* */
+
+/* de grote foto's centreren we zowel
+horizontaal als verticaal op de pagina  */
+.fotocenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
